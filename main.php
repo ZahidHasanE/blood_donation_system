@@ -1,0 +1,100 @@
+<?php 
+	include 'include/header.php';
+
+	if(isset($_POST['advise'])){
+		$username=$_POST['username'];
+		$comments=$_POST['comments'];
+		$sql1="INSERT INTO advise (username,comment)VALUES('$username','$comments')";
+		mysqli_query($connection,$sql1);
+		$comment='<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong> Thank You For Your Comment</strong>
+		<button type="button" class="close" data-dismiss="alert"aria-label="close">
+		<span aria-hidden="true">&times;</span>
+		</button>
+		</div>';
+	}
+ ?>
+	<! carousel from here>
+		<div id="demo" class="carousel slide" data-ride="carousel">
+		  <ul class="carousel-indicators">
+		    <li data-target="#demo" data-slide-to="0" class="active"></li>
+		    <li data-target="#demo" data-slide-to="1"></li>
+		    <li data-target="#demo" data-slide-to="2"></li>
+		  </ul>
+		  <div class="carousel-inner">
+		    <div class="carousel-item active">
+		      <img src="images/ima2.jpg" alt="Los Angeles" width="1100" height="500">   
+		    </div>
+		    <div class="carousel-item">
+		      <img src="images/ima1.jpg" alt="Chicago" width="1100" height="500">  
+		    </div>
+		    <div class="carousel-item">
+		      <img src="images/ima3.jpg" alt="New York" width="1100" height="500">  
+		    </div>
+		  </div>
+		  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+		    <span class="carousel-control-prev-icon"></span>
+		  </a>
+		  <a class="carousel-control-next" href="#demo" data-slide="next">
+		    <span class="carousel-control-next-icon"></span>
+		  </a>
+		</div>
+
+
+		<section class="my-5">
+			<div class="py-5">
+				<h2 class="text-center">About Us</h2>
+			</div>
+		     <div class="container">
+				<div class="row">
+    				<div class="col">
+    					<div class="card">
+     						<h3 class="text-center red">Our Vission</h3>
+								<img src="images/binoculars.png" alt="Our Vission" class="img img-responsive" width="168" height="168">
+								<p class="text-center">
+									A blood donation occurs when a person voluntarily has blood drawn and used for transfusions and/or made into biopharmaceutical medications by a process called fractionation (separation of whole blood components). Donation may be of whole blood, or of specific components directly (apheresis). Blood banks often participate in the collection process as well as the procedures that follow it.
+
+Today in the developed world, most blood donors are unpaid volunteers who donate blood for a community supply. In some countries, established supplies are limited and donors usually give blood when family or friends need a transfusion (directed donation). Many donors donate for several reasons, such as a form of charity, general awareness regarding the demand for blood, increased confidence in oneself, helping a personal friend or relative, and social pressure. Despite the many reasons that people donate, not enough potential donors actively donate. However, this is reversed during disasters when blood donations increase, often creating an excess supply that will have to be later discarded. In countries that allow paid donation some people are paid, and in some cases there are incentives other than money such as paid time off from work. People can also have blood drawn for their own future use (autologous donation). Donating is relatively safe, but some donors have bruising where the needle is inserted or may feel faint.
+								</p>
+					</div>
+    			</div>
+
+    				<div class="col">
+    					<div class="card">
+      							<h3 class="text-center red">Our Goal</h3>
+								<img src="images/target.png" alt="Our Vission" class="img img-responsive" width="168" height="168">
+								<p class="text-center">
+									Potential donors are evaluated for anything that might make their blood unsafe to use. The screening includes testing for diseases that can be transmitted by a blood transfusion, including HIV and viral hepatitis. The donor must also answer questions about medical history and take a short physical examination to make sure the donation is not hazardous to his or her health. How often a donor can donate varies from days to months based on what component they donate and the laws of the country where the donation takes place. For example, in the United States, donors must wait 56 days (eight weeks) between whole-blood donations but only seven days between platelet apheresis donations[1] and twice per seven-day period in plasmapheresis.
+
+The amount of blood drawn and the methods vary. The collection can be done manually or with automated equipment that takes only specific components of the blood. Most of the components of blood used for transfusions have a short shelf life, and maintaining a constant supply is a persistent problem. This has led to some increased interest in autotransfusion, whereby a patient's blood is salvaged during surgery for continuous reinfusion—or alternatively, is "self-donated" prior to when it will be needed. (Generally, the notion of "donation" does not refer to giving to one's self, though in this context it has become somewhat acceptably idiomatic.)
+								</p>
+					</div>
+    		 </div>
+		</section>
+
+		<section class="my-5">
+			<div class="py-2">
+				<p class="text-center">Leave For us An Useful Comments</p>	
+			</div>
+
+			<div class="w-25 m-auto">
+				<?php if (isset($comment)) echo $comment;
+     						  ?>
+				<form action=" " method="POST">
+					<div class="form-group">
+						<label>User Name</label>
+						<input type="text" name="username" required class="form-control" autocomplete="off">
+					</div>
+					<div class="form-group">
+						<label>Comments</label>
+						<textarea class="form-control" name="comments">
+							
+						</textarea>
+					</div>
+					<button type="submit" name="advise" class="btn btn-info">Submit</button>
+				</form>
+			</div>
+		</section>
+
+<?php 
+	include 'include/footer.php';
+ ?>
